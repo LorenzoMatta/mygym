@@ -1,6 +1,7 @@
 package it.corso.mygym.model;
 
 
+import it.corso.mygym.model.enums.Type;
 import jakarta.validation.constraints.NotNull;
 import jdk.jfr.BooleanFlag;
 import lombok.Getter;
@@ -19,8 +20,6 @@ public class Subscription implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String type;
 
     private Double price;
 
@@ -42,4 +41,7 @@ public class Subscription implements Serializable {
     @ManyToOne
     @JoinColumn(name = "gym_id")
     private Gym gym;
+
+    @Column(name="type")
+    private Type type;
 }
