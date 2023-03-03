@@ -31,7 +31,7 @@ public class Subscription implements Serializable {
 
     @NotNull
     @BooleanFlag
-    private boolean isPaid;
+    private boolean paid;
 
 
     @ManyToOne

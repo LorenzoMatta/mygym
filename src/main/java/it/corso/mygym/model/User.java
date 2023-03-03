@@ -32,7 +32,7 @@ public class User implements Serializable {
     @BooleanFlag
     private boolean medicCertificate;
     @BooleanFlag
-    private boolean isActivated;
+    private boolean activeFlag=true;
 
     @OneToMany(mappedBy = "user")
     private List<Subscription> subscriptions;

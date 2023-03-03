@@ -1,4 +1,4 @@
-package it.corso.mygym.model.dao;
+package it.corso.mygym.dao;
 
 
 import it.corso.mygym.model.Subscription;
