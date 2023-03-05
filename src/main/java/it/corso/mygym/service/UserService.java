@@ -15,6 +15,7 @@ import java.util.List;
 
 
         User deleteById(Long id);
+
         List<User> findAll(boolean includeInactiveFlag);
     }
 

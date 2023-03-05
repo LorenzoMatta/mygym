@@ -12,6 +12,7 @@ import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.HashSet;
 import java.util.List;
@@ -58,6 +59,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+
     public User deleteById(Long id) {
         Optional<User> optionalUser = repo.findById(id);
 
@@ -65,9 +67,9 @@ public class UserServiceImpl implements UserService {
             User user = optionalUser.get();
 
             // hard-delete
-            //repo.deleteById(id);
-
-            return repo.save(user);
+            repo.deleteById(id);
+            return null;
+            //return repo.save(user);
         } else throw new ResourceNotFoundException();
     }
 

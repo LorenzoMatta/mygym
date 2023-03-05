@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.springframework.http.MediaType.*;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/{users}")
 public interface UserController {
 
 
@@ -22,10 +22,14 @@ public interface UserController {
     @PostMapping()
     ResponseEntity<User> save(@Valid @RequestBody UserDto userDto);
 
-    @GetMapping("/id")
-    ResponseEntity<User> findById(@PathVariable("id") Long id);
+    @GetMapping("/{id}")
+    ResponseEntity<User> findById(@PathVariable(value="id") Long id);
     @GetMapping()
     ResponseEntity <List<User>> findAll();
+
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<User> deleteById(@PathVariable(value="id") Long id);
 
     @GetMapping()
     ResponseEntity<User> update(@PathVariable(value="id") Long id, @Valid @RequestBody UserDto userDto);
